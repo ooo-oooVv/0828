@@ -13,25 +13,53 @@ $(document).ready(function(){
      })
    }) //// a.scrollPage click
 
-   $('.section').each(function(){ // each 메서드는 다중처리 프로그래밍을 짧게 해주는 효율적인 메서드
-      $(this).attr('data-pos', $(this).offset().top)
-      //각자 .section들은 data-pos속성을 만들고 각자의 body상단에서 떨어지는 상단위치를 저장해라
-   })
-
    $(window).on('scroll' , function(){
-      var scrollPos = $(window).scrollTop(); 
-      //스크롤위치 스크롤할때마다 값이 바뀐다.
-      $('.section').each(function(){ //section마다 스크롤위치가 나의 상단위치랑 비교
-         var thisPos = $(this).offset().top;  // 나의 상단위치
-         if( scrollPos > thisPos - 100 ){ // 스크롤위치가 나의 상단위치보다 커지면
-            // 다른 말로 내가 화면에 나오고 있다는 뜻
+
+      var scrollPos = $(window).scrollTop();      
+      $('.section').each(function(){ 
+         if( scrollPos > $(this).offset().top - 100 ){ 
             $('#gnb .navia').removeClass('on')
-            $('a[href="#'+$(this).attr('id')+'"]').addClass('on')
-            //그러면 나의 아이디랑 똑같은 href값을 가진 a태그를 활성화해라.
+            $('a[href="#'+$(this).attr('id')+'"]').addClass('on')           
          }
       })
+       
+      if( scrollPos > 0){
+         $('#hd').addClass('on')
+      }else{
+         $('#hd').removeClass('on')
+      }
+
 
    })
+
+   var num = 0;
+   //2번
+   var myroll = setInterval(function(){
+      num++;
+      num %= $('.culture_item button').length;
+      myrollingfun(num); // 실행식에서는 진짜 값을 넣어줘야한다.
+   }, 3000)
+   //3번
+   $('.culture_item button').on('click', function(){
+      clearInterval(myroll); // 자동롤링 멈춰
+      num = $(this).parent().index()
+      myrollingfun(num) 
+      //클릭한 버튼의 부모 .culture_item의 순번 0 ,1, 2  
+      // 3초내에 클릭을 안하면 자동롤링이 다시 실행됨
+      // var 를 삽입하면 myroll이 3초마다 생성되는거라 
+      // clearInterval(myroll); 딱 하나만 삭제하는거라 움직임이 이상해짐
+      myroll = setInterval(function(){
+         num++;
+         num %= $('.culture_item button').length;
+         myrollingfun(num); // 실행식에서는 진짜 값을 넣어줘야한다.
+         
+      }, 3000)       
+   })
+   //1번 선언적함수 - 제일 먼저 번역해서... 위치상관없음
+   function myrollingfun(x){ // 선택자와 이벤트로 독립
+      $('.culture_item').removeClass('active');
+      $('.culture_item button').eq(x).parent().addClass('active');
+   }   
 
 })
 ///////////////////////////// 신의한수 : 클래스삽입해서 편하게 짜다~
