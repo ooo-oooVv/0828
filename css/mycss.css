@@ -3,12 +3,39 @@ html, body {
   font-family: "GmarketSansMedium";
 }
 
+a, a:hover {
+  text-decoration: none;
+}
+
 ul, li {
   list-style: none;
 }
 
 .section {
   min-height: 600px;
+}
+
+.scrollPage {
+  position: relative;
+}
+.scrollPage:after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  width: 0;
+  background-color: rgba(11, 30, 144, 0.9);
+  transition: 0.5s;
+  margin: 0 auto;
+}
+.scrollPage.on:after, .scrollPage:hover:after {
+  width: 100%;
+}
+
+a.scrollPage:hover {
+  color: rgba(11, 30, 144, 0.9) !important;
 }
 
 #main_banner {
