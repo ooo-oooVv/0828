@@ -4,21 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>setInterval & clearInterval 기본 다루기(ifelse, callback, array</title>
+    <title>배너프로젝트</title>
+    <link rel="stylesheet" href="css/set.css">
     <script
     src="https://code.jquery.com/jquery-2.2.4.min.js"
     integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
     crossorigin="anonymous"></script>
+    <script src="js/banner.js"></script>
   
 </head>
 <body>
-    <button class="prev">이전</button><button class="next">다음</button>
     <div class="slide">
         <div class="slide-wrapper">
-            .slide
         </div>
+    
+
+    <div class="btns">
+        <!-- 정적개체 -->
+        <button class="prev"><span class="sr-only">이전</span></button>
+        <button class="next"><span class="sr-only">다음</span></button>
     </div>
-    <script>
+
+    <div class="indicate">
+        <!-- 동적개체 -->
+    </div>
+</div>
+    <!-- <script>
         // Q. 화면에 .timer에 입력한 숫자가 출력되고 1초마다 증가하게끔 수정하기
             // 최적화하기
         // let count = $('.timer').html();
@@ -89,6 +100,6 @@
         }
 
 
-    </script>
+    </script> -->
 </body>
 </html>
