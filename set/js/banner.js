@@ -59,7 +59,7 @@ $(function(){ // = 화면 실행 직후 터짐 (=doucument.ready)
             if(s_count > 0) s_count--; else s_count=2;
         }
         mySwiper.activeStatu(s_count);
-        var autoBanner = setInterval(function(){ //3초마다 주기적으로 활성화
+        autoBanner = setInterval(function(){ //3초마다 주기적으로 활성화
             if(mySwiper.dir == 'next'){
                 if(s_count < 2) s_count++; else s_count=0;
             }else{
@@ -67,7 +67,6 @@ $(function(){ // = 화면 실행 직후 터짐 (=doucument.ready)
             }
             mySwiper.activeStatu(s_count);
             }, 3000)
-
 
     })
 
@@ -76,7 +75,8 @@ $(function(){ // = 화면 실행 직후 터짐 (=doucument.ready)
         clearInterval(autoBanner);//자동롤링 멈춤
         s_count = $(this).index();
         mySwiper.activeStatu(s_count);
-        var autoBanner = setInterval(function(){ //3초마다 주기적으로 활성화
+
+        autoBanner = setInterval(function(){ //3초마다 주기적으로 활성화
             if(mySwiper.dir == 'next'){
                 if(s_count < 2) s_count++; else s_count=0;
             }else{
@@ -84,6 +84,5 @@ $(function(){ // = 화면 실행 직후 터짐 (=doucument.ready)
             }
             mySwiper.activeStatu(s_count);
             }, 3000)
-
-    })
+})
 })
