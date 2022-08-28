@@ -39,6 +39,8 @@
         //     $('.timer').html(count)
         // }
 
+
+
         // // Q3. 함수에 autoTimer 라는 이름 붙여주기
         // var autoTimer = setInterval(function(){
         //     _setTimefun($('.timer').html())
@@ -49,8 +51,10 @@
         //     $('.timer').html(count)
         // }
 
+        
+
         // Q4. 버튼 클릭시 숫자 증감
-        var _classNm = 'next'
+        var _classNm = 'next' //if가 실행되도록 초기값 설정
         var autoTimer = setInterval(function(){
             _setTimefun($('.timer').html(), _classNm)
             }, 1000)
@@ -69,6 +73,10 @@
             })
 
         function _setTimefun(count, dir){
+        // 함수의 용도 -> 두가지 다른 배반적 조건에 숫자출력
+        // 앞뒤버튼이 있어서 증가, 혹은 가감 숫자 출력.
+        // 첫번째 인자는 숫자자리, 두번째 인자는 next 값이 true or false
+
             if (dir == 'next') {
                 if(count < 4) count++; else count = 0;
             }
